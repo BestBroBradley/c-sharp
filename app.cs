@@ -1,9 +1,11 @@
 using System;
+using System.IO;
 
-class Testing
+class Writer
 {
     static void Main(string[] args)
     {
-        Console.Write("testing");
+        string path = Directory.GetCurrentDirectory() + "/data/commits.txt";
+        System.IO.File.WriteAllText(path, "testing");
     }
 }
