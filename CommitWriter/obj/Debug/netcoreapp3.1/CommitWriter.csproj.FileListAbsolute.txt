@@ -22,3 +22,7 @@
 /Users/bestbrobradley/Desktop/code/CommitWriter/CommitWriter/obj/Debug/netcoreapp3.1/CommitWriter.dll
 /Users/bestbrobradley/Desktop/code/CommitWriter/CommitWriter/obj/Debug/netcoreapp3.1/CommitWriter.pdb
 /Users/bestbrobradley/Desktop/code/CommitWriter/CommitWriter/obj/Debug/netcoreapp3.1/CommitWriter.genruntimeconfig.cache
+/Users/bestbrobradley/Desktop/code/CommitWriter/CommitWriter/bin/Debug/netcoreapp3.1/System.Net.Http.Formatting.dll
+/Users/bestbrobradley/Desktop/code/CommitWriter/CommitWriter/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/bestbrobradley/Desktop/code/CommitWriter/CommitWriter/bin/Debug/netcoreapp3.1/Newtonsoft.Json.Bson.dll
+/Users/bestbrobradley/Desktop/code/CommitWriter/CommitWriter/obj/Debug/netcoreapp3.1/CommitWriter.csproj.CopyComplete
