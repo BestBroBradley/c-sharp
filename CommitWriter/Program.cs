@@ -46,7 +46,7 @@ namespace CommitWriter
 
             foreach (var item in items)
             {
-                results.Add("Commit: " + item.message + " (" + item.date + ")  ");
+                results.Add("Commit: " + item.message + " (" + item.date + ")");
             }
 
             Go.DataWriter(results);

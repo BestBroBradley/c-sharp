@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{C440DA50-7BF8-467B-AEFB-418E18329E69}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="CommitWriter/Program.cs">
     <Files>
-      <File FileName="CommitWriter/Program.cs" Line="31" Column="62" />
+      <File FileName="CommitWriter/Program.cs" Line="49" Column="78" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
