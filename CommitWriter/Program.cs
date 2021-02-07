@@ -1,7 +1,5 @@
 ﻿using System;
 using System.IO;
-using CommitWriter.API;
-using CommitWriter.Writer;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -30,7 +28,8 @@ namespace CommitWriter
 
                 try
                 {
-                    System.IO.File.WriteAllText(path + "/data/commits.txt", results.ToString());
+                    results = string.Join(Environment.NewLine, results.ToArray());
+                    System.IO.File.WriteAllText(path + "/data/commits.txt", results);
                     Console.WriteLine("Successfully wrote commit history to commits.txt");
                 }
                 catch (Exception ex)

@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{C440DA50-7BF8-467B-AEFB-418E18329E69}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CommitWriter/data/commits.txt">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CommitWriter/Program.cs">
     <Files>
-      <File FileName="CommitWriter/Program.cs" Line="33" Column="97" />
-      <File FileName="CommitWriter/data/commits.txt" Line="1" Column="1" />
+      <File FileName="CommitWriter/Program.cs" Line="31" Column="62" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CommitWriter" expanded="True">
             <Node name="CommitWriter" expanded="True">
+              <Node name="data" expanded="True" />
               <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
