@@ -5,33 +5,33 @@ using System.Threading.Tasks;
 
 namespace CommitWriter.API
 {
-    //  This class is the starter for contacting an API
-    public static class APIInit
+    class APIInit
     {
-        public static HttpClient APIClient { get; set; }
-
-        public static void InitializeClient()
+        public static async Task<CommitModel> QueryAPI()
         {
-            APIClient = new HttpClient();
-            APIClient.DefaultRequestHeaders.Accept.Clear();
-            APIClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            Console.WriteLine("Connection initialized");
-        }
-    }
-
-    public class APICalls
-    {
-        public async Task GetCommits()
-        {
-            string url = "https://api.bitbucket.org/2.0/repositories/calanceus/interviews17/commits";
-
-            using (HttpResponseMessage response = await APIInit.APIClient.GetAsync(url))
+            using (var client = new HttpClient())
             {
+                client.BaseAddress = new Uri("https://api.bitbucket.org/2.0/repositories/calanceus/interviews17/commits");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                Console.WriteLine("Querying API");
+
+                HttpResponseMessage response = await client.GetAsync("https://api.bitbucket.org/2.0/repositories/calanceus/interviews17/commits");
+                Console.Write(response.data);
                 if (response.IsSuccessStatusCode)
                 {
-                    Console.Write(response);
+                    CommitModel commits = await response.Content.ReadAsAsync<CommitModel>();
+                    Console.WriteLine("We got the goods.");
+                    return commits;
                 }
-            };
+                else
+                {
+                    Console.WriteLine("Hit the else.");
+                    throw new Exception(response.ReasonPhrase);
+                }
+
+            }
         }
     }
 }
