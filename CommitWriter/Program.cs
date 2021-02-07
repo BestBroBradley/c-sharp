@@ -5,6 +5,7 @@ using CommitWriter.Writer;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Collections.Generic;
 
 namespace CommitWriter
 {
@@ -19,8 +20,9 @@ namespace CommitWriter
 
     public static class Go
     {
-        public static void DataWriter()
+        public static void DataWriter(dynamic results)
         {
+
             {
                 string path = Directory.GetParent("data").FullName;
                 Console.WriteLine(path);
@@ -39,11 +41,16 @@ namespace CommitWriter
 
         public static void DataFormatter(dynamic items)
         {
+            var results = new List<string>();
+
             foreach (var item in items)
             {
-                Console.WriteLine(item.message);
-                Console.WriteLine(item.date);
+                results.Add("Commit: " + item.message + " (" + item.date + ")  ");
             }
+
+            results.ForEach(Console.WriteLine);
+
+            Go.DataWriter(results);
         }
 
     }
