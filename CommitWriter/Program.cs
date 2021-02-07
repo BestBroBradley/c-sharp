@@ -13,7 +13,6 @@ namespace CommitWriter
             APIInit.QueryAPI().Wait();
         }
 
-
         public void WriteData()
         {
             string path = Directory.GetCurrentDirectory() + "/data/commits.txt";
