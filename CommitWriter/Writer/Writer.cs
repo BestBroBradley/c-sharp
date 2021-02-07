@@ -1,10 +1,23 @@
 ﻿using System;
+
+
 namespace CommitWriter.Writer
 {
-    public class Writer
+    public static class Go
     {
-        public Writer()
+        public static void DataWriter()
         {
+
+        }
+
+        public static void DataFormatter()
+        {
+
+        }
+
+        public static void DataGrabber()
+        {
+
         }
     }
 }

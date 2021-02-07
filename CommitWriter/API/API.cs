@@ -1,27 +1,49 @@
 ﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using CommitWriter.Writer;
 
 namespace CommitWriter.API
 {
-    class APIInit
+    public static class APIInit
     {
-        HttpClient client = new HttpClient();
+        public static HttpClient APIClient { get; set; }
 
-        public static async Task QueryAPI()
+        public static void InitializeClient()
         {
-            APIInit apiinit = new APIInit();
-            Console.WriteLine("Querying API.");
-            await apiinit.GetData();
+            APIClient = new HttpClient();
+            APIClient.DefaultRequestHeaders.Accept.Clear();
+            APIClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
+    }
 
-        private async Task GetData()
+    public static class APICaller
+    {
+        public static async Task<CommitModel> GrabCommits()
         {
-            string response = await client.GetStringAsync("https://api.bitbucket.org/2.0/repositories/calanceus/interviews17/commits");
-            Console.WriteLine("Received data.");
-            Console.WriteLine(response);
-        }
+            string url = "https://api.bitbucket.org/2.0/repositories/calanceus/interviews17/commits";
 
+            using (HttpResponseMessage response = await APIInit.APIClient.GetAsync(url))
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    CommitModel data = await response.Content.ReadAsAsync<CommitModel>();
+                    return data;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
+    }
+
+    public class CommitModel
+    {
+        public object Values { get; set; }
     }
 }
