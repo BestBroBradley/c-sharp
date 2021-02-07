@@ -22,13 +22,15 @@ namespace CommitWriter
     {
         public static void DataWriter(dynamic results)
         {
-
             {
-                string path = Directory.GetParent("data").FullName;
-                Console.WriteLine(path);
+                var path = Directory.GetCurrentDirectory();
+                path = Directory.GetParent(path).FullName;
+                path = Directory.GetParent(path).FullName;
+                path = Directory.GetParent(path).FullName;
+
                 try
                 {
-                    // System.IO.File.WriteAllText(path, "testing");
+                    System.IO.File.WriteAllText(path + "/data/commits.txt", results.ToString());
                     Console.WriteLine("Successfully wrote commit history to commits.txt");
                 }
                 catch (Exception ex)
@@ -47,8 +49,6 @@ namespace CommitWriter
             {
                 results.Add("Commit: " + item.message + " (" + item.date + ")  ");
             }
-
-            results.ForEach(Console.WriteLine);
 
             Go.DataWriter(results);
         }
